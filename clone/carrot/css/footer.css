@@ -26,5 +26,29 @@ footer {
 }
 
 .footer-icons span {
+  transform: scale(0.8);
+  font-weight: bold;
   padding-bottom: 10px;
+}
+
+@keyframes icons-du-du {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.footer-icons:hover .footer-icons__img {
+  animation: 1.5s icons-du-du;
 }
