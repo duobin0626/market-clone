@@ -15,6 +15,10 @@ main {
   border-radius: 12px;
   margin-right: 20px;
 }
+/* .item-list__img img {
+  width: 50%;
+  padding: 25%;
+} */
 .item-list__info {
   display: flex;
   flex-direction: column;
@@ -37,8 +41,15 @@ main {
   position: fixed;
   bottom: 120px;
   right: 20px;
-  background-color: #fe6f0f;
+  background-color: var(--button-primary);
   padding: 10px 15px;
   color: white;
   border-radius: 25px;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.2s ease-in-out;
+}
+
+.write-btn:hover {
+  background-color: var(--button-hover);
 }
