@@ -80,7 +80,10 @@ async def get_image(item_id):
                               SELECT image FROM items WHERE id={item_id}
                               """).fetchone()[0]
     
-    return Response(content=bytes.fromhex(image_bytes))
+    # media_type='image/*' 이걸 넣어줘야 이미지 엑박이 안뜸 
+    # Fast API의 버전은 python 3.11
+    # deta-space 버전은 ptyhon 3.9 이기 때문에 간혹 안뜨는 경우가 있어서 해줘야 한다.
+    return Response(content=bytes.fromhex(image_bytes), media_type='image/*')
 
 
 # root path는 맨 밑에 작성해 주는것이 제일 좋다.
