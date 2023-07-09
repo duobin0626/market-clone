@@ -8,6 +8,19 @@ import sqlite3
 con = sqlite3.connect('carrot.db',check_same_thread=False)
 cur = con.cursor()
 
+# 백엔드 서버에서 자동 테이블 생성 (없는경우에만 )
+cur.execute(f"""
+            CREATE TABLE IF NOT EXISTS items (
+                id INTEGER PRIMARY KEY,
+                title TEXT NOT NULL,
+                image BLOB,
+                price INTEGER NOT NULL,
+                description TEXT,
+                place TEXT NOT NULL,
+                insertAt INTEGER NOT NULL
+            );
+            """)
+
 app = FastAPI()
 
 #프론트엔드에서 받을 값 , 각 각 타입 지정필요.
